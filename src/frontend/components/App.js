@@ -6,6 +6,6 @@ function App() {
       <p>Hello from this DApp</p>
     </div>
   );
-}
+} 
 
 export default App;
