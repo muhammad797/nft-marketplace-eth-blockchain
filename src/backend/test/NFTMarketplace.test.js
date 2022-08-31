@@ -137,7 +137,8 @@ describe('NFTMarketplace', function () {
       //   sum_______: +fee + +fromWei(feeAccountInitialEthBal)
       // });
 
-      // // feeAccount should receive fee | Issue coming in regarding last digit of final & sum
+      // feeAccount should receive fee | Issue coming in regarding last digit of final & sum
+      // TODO: Fix the following test case
       // expect(+fromWei(feeAccountFinalEthBal)).to.equal(
       //   +fee + +fromWei(feeAccountInitialEthBal)
       // );
