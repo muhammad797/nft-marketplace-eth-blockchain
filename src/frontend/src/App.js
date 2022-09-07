@@ -20,7 +20,7 @@ function App() {
   const [account, setAccount] = useState(null);
   const [marketplace, setMarketplace] = useState(null);
   const [NFT, setNFT] = useState(null);
-
+ 
   // Connect/Login to MetaMask
   const web3Handler = async () => {
     try {
@@ -83,7 +83,10 @@ function App() {
                 path='/'
                 element={<Home marketplace={marketplace} nft={NFT} />}
               />
-              <Route path='/create' element={<Create />} />
+              <Route
+                path='/create'
+                element={<Create marketplace={marketplace} nft={NFT} />}
+              />
               <Route path='/my-listed-items' element={<MyListedItems />} />
               <Route path='/my-purchases' element={<MyPurchases />} />
             </Routes>

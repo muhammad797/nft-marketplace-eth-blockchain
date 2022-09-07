@@ -13,9 +13,12 @@ const Home = ({ marketplace, nft }) => {
 
   const loadMarketplaceItems = async () => {
     const itemCount = await marketplace.itemCount();
+    console.log('ITEM COUNT 🚀', itemCount.toNumber());
+
     let items = [];
     for (let i = 1; i <= itemCount; i++) {
       const item = await marketplace.items(i);
+      console.log('ITEM: ', item);
       if (!item.sold) {
         // get uri url from nft contract
         const uri = await nft.tokenURI(item.tokenId);
@@ -35,10 +38,12 @@ const Home = ({ marketplace, nft }) => {
           image: metadata.image
         });
       }
-
-      setItems(items);
-      setLoading(false);
     }
+
+    console.log('🫡 Fetching is complete...');
+
+    setItems(items);
+    setLoading(false);
   };
 
   const buyMarketItem = async (item) => {
@@ -54,7 +59,7 @@ const Home = ({ marketplace, nft }) => {
         <div className='px-5 container'>
           <Row xs={1} md={2} lg={4} className='g-4 py-5'>
             {items.map((item, idx) => (
-              <Col key={idx} className='overflow-hidden'>
+              <Col key={idx} className='overflow-hidden' md={4} lg={4}>
                 <Card>
                   <Card.Img variant='top' src={item.image} />
                   <Card.Body color='secondary'>
